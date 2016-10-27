@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cris.chefapp.Menu">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menú Principal"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:id="@+id/principalTitle"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Inventario"
+        android:id="@+id/setInventary"
+        android:layout_below="@+id/principalTitle"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Ordenes"
+        android:id="@+id/viewOrders"
+        android:layout_below="@+id/setMenu"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Menú"
+        android:id="@+id/setMenu"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/setInventary"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cerrar2"
+        android:text="Cerrar"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/viewOrders"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>

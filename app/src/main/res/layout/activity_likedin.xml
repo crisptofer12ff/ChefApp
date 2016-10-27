@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:id="@+id/linkedin"
+    tools:context="cris.chefapp.Likedin">
+
+    <ImageView
+        android:layout_width="229dp"
+        android:layout_height="54dp"
+        app:srcCompat="@drawable/linkedin"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regitrarse con LikendIn"
+        android:textAlignment="viewStart"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/textoRegistro"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Usuario LinkedIn"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:id="@+id/editText" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:textSize="15dp"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPassword" />
+
+    <Button
+        android:text="Ingresar"
+        android:layout_width="137dp"
+        android:layout_height="36dp"
+        android:id="@+id/ingresar"
+        android:padding="5dp"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
