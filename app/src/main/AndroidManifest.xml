@@ -25,7 +25,7 @@
         <activity android:name=".PrepararOrden" />
         <activity android:name=".InformacionPlatillo" />
         <activity android:name=".AddReceta" />
-        <activity android:name=".RegistrarPlatillo">
+        <activity android:name=".AddIngredientes">
         </activity>
     </application>
 

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import Menu.PlatilloSerializable;
 import estructurasDatos.ListaDoble;
 import ingredientes.Carnes;
 import ingredientes.Frutas;
@@ -20,7 +22,7 @@ import ingredientes.IngredienteSolo;
 import ingredientes.Lacteos;
 import ingredientes.Vegetales;
 
-public class RegistrarPlatillo extends AppCompatActivity {
+public class AddIngredientes extends AppCompatActivity {
 
     ListView listViewIng;
     ListaDoble<IngredienteSolo> listaIngredientes;
@@ -113,7 +115,7 @@ public class RegistrarPlatillo extends AppCompatActivity {
                         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(cantidad.getWindowToken(), 0);
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarPlatillo.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddIngredientes.this);
                         builder.setTitle("¡Listo!");
                         builder.setMessage("Se agregó correctamente");
                         builder.setPositiveButton("OK",null);
@@ -121,7 +123,7 @@ public class RegistrarPlatillo extends AppCompatActivity {
                         builder.show();
                     }
                     else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarPlatillo.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddIngredientes.this);
                         builder.setTitle("¡Atención!");
                         builder.setMessage("Por favor complete la información");
                         builder.setPositiveButton("OK", null);
@@ -130,7 +132,7 @@ public class RegistrarPlatillo extends AppCompatActivity {
                     }
                 }
                 else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarPlatillo.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddIngredientes.this);
                     builder.setTitle("¡Atención!");
                     builder.setMessage("¡Se alcanzó la cantidad maxima de ingredientes para el platillo!");
                     builder.setPositiveButton("OK", null);
@@ -144,7 +146,10 @@ public class RegistrarPlatillo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Se debe pasar los parametros recuperados a la siguente pantalla
-                Intent intent = new Intent(RegistrarPlatillo.this, InformacionPlatillo.class);
+                PlatilloSerializable platillo = (PlatilloSerializable)getIntent().getExtras().getSerializable("platillo");
+                platillo.setListaIngredientes(listaIngredientes);
+                Intent intent = new Intent(AddIngredientes.this, AddReceta.class);
+                intent.putExtra("platillo", platillo);
                 startActivity(intent);
                 finish();
             }

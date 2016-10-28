@@ -15,6 +15,17 @@
         android:layout_marginTop="5dp"
         android:textSize="20dp"
         android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Platillo"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:id="@+id/nombrePlatillo"
+        android:inputType="text" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +35,7 @@
         android:layout_margin="10dp"
         android:id="@+id/informacionNutricional"
         android:inputType="number" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,6 +54,16 @@
         android:layout_margin="10dp"
         android:id="@+id/tiempoPreparacion"
         android:inputType="text" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad de Ingredientes"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/cantidadDeIng"
+        android:inputType="number" />
 
     <EditText
         android:layout_width="match_parent"

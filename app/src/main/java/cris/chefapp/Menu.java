@@ -26,7 +26,7 @@ public class Menu extends AppCompatActivity {
         btnRegistrarMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Menu.this, RegistrarPlatillo.class);
+                Intent intent = new Intent(Menu.this, InformacionPlatillo.class);
                 startActivity(intent);
             }
         });

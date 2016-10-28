@@ -11,6 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import Menu.*;
+
+import Menu.PlatilloSerializable;
+import estructurasDatos.ListaDoble;
 
 
 public class AddReceta extends AppCompatActivity {
@@ -18,6 +22,7 @@ public class AddReceta extends AppCompatActivity {
     ListView pasosList;
     String[] pasosStr = new String[30];
     int contador = 0;
+    ListaDoble<Pasos> listaPasos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,10 @@ public class AddReceta extends AppCompatActivity {
                         contador++;
                         paso.setText("");
                         pasosList.setAdapter(adapter);
+
+                        Pasos paso1 = new Pasos();
+                        paso1.setPaso(pasoReceta);
+                        listaPasos.add(paso1);
                         //esconde el teclado
                         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(paso.getWindowToken(), 0);
@@ -90,6 +99,12 @@ public class AddReceta extends AppCompatActivity {
             public void onClick(View v) {
                 // se debe agregar los parametros anteriores para agregarlos a la instancia de la clase platillo
                 // Y pasarlos al servidor
+                PlatilloSerializable platillo = (PlatilloSerializable)getIntent().getExtras().getSerializable("platillo");
+                Receta receta1 = new Receta();
+                receta1.setListaPasos(listaPasos);
+                platillo.setReceta(receta1);
+
+                //implementar el envío del platillo al server
                 Intent intent = new Intent(AddReceta.this, Menu.class);
                 startActivity(intent);
                 finish();
