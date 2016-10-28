@@ -30,7 +30,7 @@ public class AddReceta extends AppCompatActivity {
         setContentView(R.layout.activity_add_receta);
 
         //Inicializar la lista vacía para la vista
-        for (int i = 0; i < 30; i++){
+        for (int i =  0; i < 30; i++){
             pasosStr[i] = "vacio...";
         }
         //Se instancia la vista tipo lista y se crea el adapter
