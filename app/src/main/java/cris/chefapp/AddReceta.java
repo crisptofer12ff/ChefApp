@@ -11,12 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import Comunicacion.DatosRecibidos;
-import Menu.*;
-
+import java.util.LinkedList;
+import Menu.Pasos;
 import Menu.PlatilloSerializable;
-import estructurasDatos.ListaDoble;
+import Menu.Receta;
+import interfaz.Interfaz;
 
 
 public class AddReceta extends AppCompatActivity {
@@ -24,7 +23,7 @@ public class AddReceta extends AppCompatActivity {
     ListView pasosList;
     String[] pasosStr = new String[15];
     int contador = 0;
-    ListaDoble<Pasos> listaPasos = new ListaDoble<Pasos>();
+    LinkedList<Pasos> listaPasos = new LinkedList<Pasos>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +107,7 @@ public class AddReceta extends AppCompatActivity {
 
                 //implementar el envío del platillo al server
                 Intent intent = new Intent(AddReceta.this, Menu.class);
-                DatosRecibidos.setListaPasos(listaPasos);
+                Interfaz.addPlatilloMenu(platillo);
                 startActivity(intent);
                 finish();
             }

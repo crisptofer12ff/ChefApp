@@ -6,20 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/linkedin"
-    tools:context="cris.chefapp.Likedin">
+    tools:context="cris.chefapp.ValidarCheff">
 
     <ImageView
-        android:layout_width="229dp"
-        android:layout_height="54dp"
-        app:srcCompat="@drawable/linkedin"
-        android:id="@+id/imageView"
-        android:layout_gravity="center"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/chef"
+        android:id="@+id/imageView11" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Regitrarse con LikendIn"
+        android:text="Ingresar Cuenta de Cheff"
         android:textAlignment="viewStart"
         android:textSize="20dp"
         android:padding="10dp"
@@ -28,13 +26,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="Usuario LinkedIn"
+        android:inputType=""
+        android:hint="Cuenta"
         android:textSize="15dp"
         android:padding="10dp"
         android:layout_marginLeft="10dp"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:id="@+id/cuenta" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,13 +40,31 @@
         android:textSize="15dp"
         android:padding="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:id="@+id/contrasenia"/>
 
     <Button
         android:text="Ingresar"
         android:layout_width="137dp"
         android:layout_height="36dp"
         android:id="@+id/ingresar"
+        android:padding="5dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes cuenta?"
+        android:textAlignment="viewStart"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/textoRegistro1"/>
+
+    <Button
+        android:text="Registrar"
+        android:layout_width="137dp"
+        android:layout_height="36dp"
+        android:id="@+id/registrarNuevo"
         android:padding="5dp"
         android:layout_margin="10dp"/>
 

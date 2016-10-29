@@ -12,8 +12,10 @@ import android.widget.Spinner;
 import ingredientes.Carnes;
 import ingredientes.Frutas;
 import ingredientes.Granos;
+import ingredientes.IngredienteSolo;
 import ingredientes.Lacteos;
 import ingredientes.Vegetales;
+import interfaz.Interfaz;
 
 
 public class RegistrarInv extends AppCompatActivity {
@@ -46,22 +48,40 @@ public class RegistrarInv extends AppCompatActivity {
                         case "Vegetal":
                             Vegetales vegetal = new Vegetales();
                             vegetal.setName(nombre);
+                            IngredienteSolo vegetal1 = new IngredienteSolo();
+                            vegetal1.setVegetal(vegetal);
+                            Interfaz.setIngredientes(vegetal1);
                             break;
+
                         case "Carne":
-                            Carnes carne = new Carnes();
-                            carne.setName(nombre);
+                            Carnes carne1 = new Carnes();
+                            carne1.setName(nombre);
+                            IngredienteSolo carne = new IngredienteSolo();
+                            carne.setCarne(carne1);
+                            Interfaz.setIngredientes(carne);
                             break;
+
                         case "Grano":
-                            Granos grano = new Granos();
-                            grano.setName(nombre);
+                            Granos grano1 = new Granos();
+                            grano1.setName(nombre);
+                            IngredienteSolo grano = new IngredienteSolo();
+                            grano.setGrano(grano1);
+                            Interfaz.setIngredientes(grano);
                             break;
+
                         case "Lacteo":
-                            Lacteos lacteo = new Lacteos();
-                            lacteo.setName(nombre);
+                            Lacteos lacteo1 = new Lacteos();
+                            lacteo1.setName(nombre);
+                            IngredienteSolo lacteo = new IngredienteSolo();
+                            lacteo.setLacteo(lacteo1);
+                            Interfaz.setIngredientes(lacteo);
                             break;
                         case "Fruta":
-                            Frutas fruta = new Frutas();
-                            fruta.setName(nombre);
+                            Frutas fruta1 = new Frutas();
+                            fruta1.setName(nombre);
+                            IngredienteSolo fruta = new IngredienteSolo();
+                            fruta.setFruta(fruta1);
+                            Interfaz.setIngredientes(fruta);
                             break;
                         default:
                             break;

@@ -13,8 +13,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.util.LinkedList;
+
 import Menu.PlatilloSerializable;
-import estructurasDatos.ListaDoble;
 import ingredientes.Carnes;
 import ingredientes.Frutas;
 import ingredientes.Granos;
@@ -25,7 +26,7 @@ import ingredientes.Vegetales;
 public class AddIngredientes extends AppCompatActivity {
 
     ListView listViewIng;
-    ListaDoble<IngredienteSolo> listaIngredientes = new  ListaDoble<IngredienteSolo>();
+    LinkedList<IngredienteSolo> listaIngredientes = new LinkedList<IngredienteSolo>();
     int contador;
     String[] ingredientes = new String[15];
 

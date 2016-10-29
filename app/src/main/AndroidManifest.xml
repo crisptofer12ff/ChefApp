@@ -18,14 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Likedin" />
+        <activity android:name=".ValidarCheff" />
         <activity android:name=".Menu" />
         <activity android:name=".RegistrarInv" />
         <activity android:name=".Ordenes" />
         <activity android:name=".InformacionPlatillo" />
         <activity android:name=".AddReceta" />
-        <activity android:name=".AddIngredientes">
-        </activity>
+        <activity android:name=".AddIngredientes"></activity>
+        <activity android:name=".Register"></activity>
     </application>
 
 </manifest>

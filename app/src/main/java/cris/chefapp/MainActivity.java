@@ -1,32 +1,46 @@
 package cris.chefapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+import interfaz.Interfaz;
 
-    public EditText ip;
-    public EditText puerto;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ip = (EditText)findViewById(R.id.ip);
-        puerto = (EditText)findViewById(R.id.puerto);
+        EditText ip1 = (EditText)findViewById(R.id.ip);
+        EditText puerto1 = (EditText)findViewById(R.id.puerto);
         Button btnconect = (Button)findViewById(R.id.enviarParametros);
+
+        final String ip = ip1.getText().toString();
+        final String puerto = puerto1.getText().toString();
 
         btnconect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Likedin.class);
-                startActivity(intent);
+                if (ip.isEmpty() && puerto.isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("¡Atencion!");
+                    builder.setMessage("Por favor ingrese los parametros solicitados");
+                    builder.setPositiveButton("OK", null);
+                    builder.create();
+                    builder.show();
+                }
+                else {
+                    Interfaz.setURL(ip, puerto);
+                    Intent intent = new Intent(MainActivity.this, ValidarCheff.class);
+                    startActivity(intent);
+                }
             }
         });
         ImageButton btnsalir = (ImageButton)findViewById(R.id.salir);
@@ -35,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
             }
         });
 

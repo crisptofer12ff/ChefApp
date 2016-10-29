@@ -39,7 +39,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio"
+        android:hint="Precio (Dolares)"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
         android:layout_margin="10dp"
@@ -48,12 +48,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tiempo de preparación"
+        android:hint="Tiempo de preparación (minutos)"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
         android:layout_margin="10dp"
         android:id="@+id/tiempoPreparacion"
-        android:inputType="text" />
+        android:inputType="number" />
 
     <EditText
         android:layout_width="match_parent"

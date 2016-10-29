@@ -2,20 +2,24 @@ package cris.chefapp;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
-import Comunicacion.DatosRecibidos;
-import estructurasDatos.*;
+import java.util.LinkedList;
+import Menu.Orden;
 import Menu.Pasos;
+import interfaz.Interfaz;
+
+import static interfaz.Interfaz.contenedor;
+
 
 public class Ordenes extends AppCompatActivity {
 
-    ListaDoble<Pasos> listaPasos = DatosRecibidos.receta;
+    LinkedList<Pasos> listaPasos = contenedor.getRestaurante().getColaOrdenes().sacarDeCola().getListaPasos();
+    Orden orden = contenedor.getRestaurante().getColaOrdenes().sacarDeCola();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +30,8 @@ public class Ordenes extends AppCompatActivity {
         for (int i =  0; i < 15; i++){
             pasos[i] = "vacio...";
         }
-        NodoDoble<Pasos> temp = listaPasos.inicio;
-        for(int i = 0; i < listaPasos.size; i++, temp = temp.getSiguiente()){
-            pasos[i] = temp.getDato().getPaso();
+        for(int i = 0; i < listaPasos.size(); i++){
+            pasos[i] = listaPasos.get(i).getPaso();
         }
         final ListView listViewPasos = (ListView)findViewById(R.id.pasosReceta);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, pasos);
@@ -38,7 +41,7 @@ public class Ordenes extends AppCompatActivity {
         terminarPaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listaPasos.size == 1) {
+                if(listaPasos.isEmpty()) {
 
                     // Lanza mensaje de terminado
                     AlertDialog.Builder builder = new AlertDialog.Builder(Ordenes.this);
@@ -51,20 +54,20 @@ public class Ordenes extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-
-                    listaPasos.deleteFirst();
+                    Pasos pasoActual = listaPasos.getFirst();
+                    listaPasos.removeFirst();
                     for (int i =  0; i < 15; i++){
                         pasos[i] = "vacio...";
                     }
-                    NodoDoble<Pasos> temp = listaPasos.inicio;
-                    for(int i = 0; i < listaPasos.size; i++, temp = temp.getSiguiente()){
+                    for(int i = 0; i < listaPasos.size(); i++){
                         if(listaPasos.isEmpty()){
                             break;
                         }
                         else{
-                            pasos[i] = temp.getDato().getPaso();
+                            pasos[i] = listaPasos.get(i).getPaso();
                         }
                     }
+                    Interfaz.borrarPasosOrden(orden, pasoActual);
                     listViewPasos.setAdapter(adapter);
                 }
 
