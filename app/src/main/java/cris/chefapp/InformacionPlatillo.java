@@ -31,12 +31,12 @@ public class InformacionPlatillo extends AppCompatActivity {
 
                 String nombre = nom.getText().toString();
                 String nutricionalInfor = nutri.getText().toString();
-                Integer precio = price.getBaseline();
-                Integer tiempo = time.getBaseline();
-                Integer cant = cantIng.getBaseline();
+                String precio = price.getText().toString();
+                String tiempo = time.getText().toString();
+                String cant = cantIng.getText().toString();
                 String datosComp = info.getText().toString();
 
-                if(nutricionalInfor.isEmpty() && precio == null && tiempo == null && nombre.isEmpty() && cant == null){
+                if(nutricionalInfor.isEmpty() && precio.isEmpty() && tiempo.isEmpty() && nombre.isEmpty() && cant.isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(InformacionPlatillo.this);
                     builder.setTitle("¡Atencion!");
                     builder.setMessage("Agregue la información necesaria");
@@ -51,9 +51,12 @@ public class InformacionPlatillo extends AppCompatActivity {
                     PlatilloSerializable platillo = new PlatilloSerializable();
                     platillo.setNombre(nombre);
                     platillo.setInformacionNutricional(nutricionalInfor);
-                    platillo.setPrecio(precio);
-                    platillo.setTiempoDePreparacion(tiempo);
-                    platillo.setCantidadDeIngredientes(cant);
+                    int precio1 = Integer.parseInt(precio);
+                    platillo.setPrecio(precio1);
+                    int tiempo1 = Integer.parseInt(tiempo);
+                    platillo.setTiempoDePreparacion(tiempo1);
+                    int cant1 = Integer.parseInt(cant);
+                    platillo.setCantidadDeIngredientes(cant1);
                     platillo.setDatoExtra(datosComp);
                     Intent intent = new Intent(InformacionPlatillo.this, AddIngredientes.class);
                     intent.putExtra("platillo", platillo);
