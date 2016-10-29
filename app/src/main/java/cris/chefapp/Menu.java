@@ -1,10 +1,13 @@
 package cris.chefapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import Comunicacion.DatosRecibidos;
 
 public class Menu extends AppCompatActivity {
 
@@ -12,7 +15,8 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        TextView cheffName = (TextView)findViewById(R.id.cheffName);
+        cheffName.setText(DatosRecibidos.getCheffName());
         Button btnRegistrarInv = (Button)findViewById(R.id.setInventary);
         btnRegistrarInv.setOnClickListener(new View.OnClickListener() {
             @Override

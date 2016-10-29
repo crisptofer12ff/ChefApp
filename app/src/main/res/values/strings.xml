@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">ChefApp</string>
-    <string name="preparar">Preparar</string>
     <string name="ordenes">Ordenes</string>
 </resources>

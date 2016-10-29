@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import Comunicacion.DatosRecibidos;
 import Menu.*;
 
 import Menu.PlatilloSerializable;
@@ -20,9 +22,9 @@ import estructurasDatos.ListaDoble;
 public class AddReceta extends AppCompatActivity {
 
     ListView pasosList;
-    String[] pasosStr = new String[30];
+    String[] pasosStr = new String[15];
     int contador = 0;
-    ListaDoble<Pasos> listaPasos;
+    ListaDoble<Pasos> listaPasos = new ListaDoble<Pasos>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class AddReceta extends AppCompatActivity {
         setContentView(R.layout.activity_add_receta);
 
         //Inicializar la lista vacía para la vista
-        for (int i =  0; i < 30; i++){
+        for (int i =  0; i < 15; i++){
             pasosStr[i] = "vacio...";
         }
         //Se instancia la vista tipo lista y se crea el adapter
@@ -48,7 +50,7 @@ public class AddReceta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String pasoReceta = paso.getText().toString();
-                if(contador < 30) {
+                if(contador < 15) {
 
                     if(pasoReceta.length()>0){
                         //aquí se debe agregar a la clase el paso y a la lista de pasos
@@ -106,6 +108,7 @@ public class AddReceta extends AppCompatActivity {
 
                 //implementar el envío del platillo al server
                 Intent intent = new Intent(AddReceta.this, Menu.class);
+                DatosRecibidos.setListaPasos(listaPasos);
                 startActivity(intent);
                 finish();
             }

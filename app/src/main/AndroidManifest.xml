@@ -22,7 +22,6 @@
         <activity android:name=".Menu" />
         <activity android:name=".RegistrarInv" />
         <activity android:name=".Ordenes" />
-        <activity android:name=".PrepararOrden" />
         <activity android:name=".InformacionPlatillo" />
         <activity android:name=".AddReceta" />
         <activity android:name=".AddIngredientes">

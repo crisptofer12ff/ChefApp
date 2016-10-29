@@ -25,9 +25,9 @@ import ingredientes.Vegetales;
 public class AddIngredientes extends AppCompatActivity {
 
     ListView listViewIng;
-    ListaDoble<IngredienteSolo> listaIngredientes;
+    ListaDoble<IngredienteSolo> listaIngredientes = new  ListaDoble<IngredienteSolo>();
     int contador;
-    String[] ingredientes = new String[25];
+    String[] ingredientes = new String[15];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class AddIngredientes extends AppCompatActivity {
         final EditText cantidad = (EditText)findViewById(R.id.cantIngrediente);
 
         //inicializa un array vacío para poder ver los ingredientes agregados
-        for (int i = 0; i<25; i++){
+        for (int i = 0; i<15; i++){
             ingredientes[i] = "vacio.....";
         }
         listViewIng = (ListView)findViewById(R.id.listaIngredientes);
@@ -63,7 +63,7 @@ public class AddIngredientes extends AppCompatActivity {
                 String categoria = categoriaActual.getSelectedItem().toString();
                 String cantidades = cantidad.getText().toString();
 
-                if(contador < 25){
+                if(contador < 15){
                     if(nombre0.length()!=0 && cantidad.length() != 0){
                         String nombre = nombre0+"     "+cantidades;
                         switch (categoria){
@@ -72,6 +72,7 @@ public class AddIngredientes extends AppCompatActivity {
                                 vegetal.setName(nombre);
                                 IngredienteSolo ing =new IngredienteSolo();
                                 ing.setVegetal(vegetal);
+                                Vegetales vg = ing.getVegetal();
                                 listaIngredientes.add(ing);
                                 break;
                             case "Carne":

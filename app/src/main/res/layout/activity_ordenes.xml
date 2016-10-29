@@ -7,7 +7,7 @@
     tools:context="cris.chefapp.Ordenes">
 
     <TextView
-        android:text="@string/ordenes"
+        android:text="Preparar Orden"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ordenes"
@@ -17,13 +17,14 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="414dp" />
+        android:layout_height="414dp"
+        android:id="@+id/pasosReceta" />
 
     <Button
-        android:text="@string/preparar"
+        android:text="Terminar Paso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/preparar" />
+        android:id="@+id/terminarPaso" />
 
 
 </LinearLayout>
