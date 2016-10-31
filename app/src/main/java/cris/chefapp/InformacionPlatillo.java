@@ -36,7 +36,7 @@ public class InformacionPlatillo extends AppCompatActivity {
                 String cant = cantIng.getText().toString();
                 String datosComp = info.getText().toString();
 
-                if(nutricionalInfor.isEmpty() && precio.isEmpty() && tiempo.isEmpty() && nombre.isEmpty() && cant.isEmpty()){
+                if(nutricionalInfor.isEmpty() && precio.isEmpty() && tiempo.isEmpty() && nombre.isEmpty() && cant.isEmpty() && datosComp.isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(InformacionPlatillo.this);
                     builder.setTitle("¡Atencion!");
                     builder.setMessage("Agregue la información necesaria");
