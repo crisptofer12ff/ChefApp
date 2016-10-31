@@ -29,7 +29,7 @@ public class Ordenes extends AppCompatActivity {
 
         final String[] pasos = new String[15];
         for (int i =  0; i < 15; i++){
-            pasos[i] = " ";
+            pasos[i] = "  ";
         }
         for(int i = 0; i < listaPasos.size(); i++){
             pasos[i] = listaPasos.get(i).getPaso();
