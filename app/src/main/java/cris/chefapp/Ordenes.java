@@ -20,6 +20,7 @@ public class Ordenes extends AppCompatActivity {
 
     LinkedList<Pasos> listaPasos = contenedor.getRestaurante().getColaOrdenes().sacarDeCola().getListaPasos();
     Orden orden = contenedor.getRestaurante().getColaOrdenes().sacarDeCola();
+    int contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class Ordenes extends AppCompatActivity {
 
         final String[] pasos = new String[15];
         for (int i =  0; i < 15; i++){
-            pasos[i] = "vacio...";
+            pasos[i] = " ";
         }
         for(int i = 0; i < listaPasos.size(); i++){
             pasos[i] = listaPasos.get(i).getPaso();
@@ -41,8 +42,13 @@ public class Ordenes extends AppCompatActivity {
         terminarPaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listaPasos.isEmpty()) {
+                if(listaPasos.size() == 1) {
 
+                    pasos [contador] = listaPasos.getFirst().getPaso() + "  terminado...";
+                    contador++;
+                    Pasos pasoActual = listaPasos.getFirst();
+                    listaPasos.removeFirst();
+                    Interfaz.borrarPasosOrden(orden, pasoActual);
                     // Lanza mensaje de terminado
                     AlertDialog.Builder builder = new AlertDialog.Builder(Ordenes.this);
                     builder.setTitle("¡Listo!");
@@ -52,25 +58,16 @@ public class Ordenes extends AppCompatActivity {
                     builder.show();
                     Intent intent = new Intent(Ordenes.this, Menu.class);
                     startActivity(intent);
+                    finish();
                 }
                 else {
+                    pasos [contador] = listaPasos.getFirst().getPaso() + "  terminado...";
+                    contador++;
                     Pasos pasoActual = listaPasos.getFirst();
                     listaPasos.removeFirst();
-                    for (int i =  0; i < 15; i++){
-                        pasos[i] = "vacio...";
-                    }
-                    for(int i = 0; i < listaPasos.size(); i++){
-                        if(listaPasos.isEmpty()){
-                            break;
-                        }
-                        else{
-                            pasos[i] = listaPasos.get(i).getPaso();
-                        }
-                    }
                     Interfaz.borrarPasosOrden(orden, pasoActual);
                     listViewPasos.setAdapter(adapter);
                 }
-
             }
 
         });
